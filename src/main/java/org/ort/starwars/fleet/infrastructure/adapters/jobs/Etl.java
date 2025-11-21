@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 import org.ort.starwars.fleet.dormain.models.entities.Starship;
 import org.ort.starwars.fleet.infrastructure.adapters.gateways.SwapiProxy;
 import org.ort.starwars.fleet.infrastructure.adapters.gateways.mappers.SwapiStarshipMapper;
+import org.ort.starwars.fleet.infrastructure.persistence.entities.StarshipEntity;
 import org.ort.starwars.fleet.infrastructure.persistence.repositories.StarshipRepository;
 import org.ort.starwars.fleet.utils.Merge;
 import org.slf4j.Logger;
@@ -41,7 +42,7 @@ public class Etl implements Runnable {
 
             // Load
             var before = repository.findAll();
-            var merge = new Merge<String, Starship>(before, starship -> starship.getKey());
+            var merge = new Merge<String, StarshipEntity>(before, starship -> starship.getKey());
             merge.addAll(after, (starshipAfter, starshiBefore) -> starshipAfter.setId(starshiBefore.getId()));
             repository.saveAll(merge.getSaved());
             repository.deleteAll(merge.getDeleted());

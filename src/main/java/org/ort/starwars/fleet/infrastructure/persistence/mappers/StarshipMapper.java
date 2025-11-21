@@ -1,7 +1,10 @@
 package org.ort.starwars.fleet.infrastructure.persistence.mappers;
 
+import java.util.List;
+
 import org.ort.starwars.fleet.dormain.models.entities.Starship;
 import org.ort.starwars.fleet.infrastructure.persistence.entities.StarshipEntity;
+import org.ort.starwars.fleet.utils.Iterables;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -34,4 +37,12 @@ public class StarshipMapper {
                 .pilot(entity.getPilot())
                 .build();
     }
+
+        public List<Starship> toDomain(Iterable<StarshipEntity> entities) {
+            return Iterables.toList(entities)
+                    .stream()
+                    .map(starship->toDomain(starship))
+                    .toList();
+        }
+
 }

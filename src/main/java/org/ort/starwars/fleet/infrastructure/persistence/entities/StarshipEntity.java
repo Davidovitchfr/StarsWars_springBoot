@@ -1,6 +1,4 @@
 package org.ort.starwars.fleet.infrastructure.persistence.entities;
-
-import org.apache.logging.log4j.util.Strings;
 import org.ort.starwars.fleet.dormain.models.enums.StarshipType;
 
 import jakarta.persistence.Column;
@@ -36,16 +34,6 @@ public class StarshipEntity {
     @Column
     private int crew;
     @Column
-
-
-
-
-
-
-
-
-
-    
     private int passengers;
     @Column
     private String pilot;
