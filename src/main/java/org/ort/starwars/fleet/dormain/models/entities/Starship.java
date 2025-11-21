@@ -1,0 +1,37 @@
+package org.ort.starwars.fleet.dormain.models.entities;
+
+import org.apache.logging.log4j.util.Strings;
+import org.ort.starwars.fleet.dormain.models.enums.StarshipType;
+
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class Starship {
+
+    private final long id;
+
+    // Caractéristiques
+    private String name;
+    private StarshipType category;
+    private int length;
+    private int crew;
+    private int passengers;
+    private String pilot;
+
+    public String getKey() {
+        return Strings.isBlank(pilot) ? name : name + " " + pilot;
+    }
+
+    public double getSpeed() {
+        double l = this.length;
+        return l > 0 ? 10000.0 / l : 0;
+    }
+
+    public double getCost() {
+        double l = this.length;
+        return l * l;
+    }
+}
