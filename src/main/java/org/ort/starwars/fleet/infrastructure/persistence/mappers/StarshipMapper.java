@@ -2,9 +2,9 @@ package org.ort.starwars.fleet.infrastructure.persistence.mappers;
 
 import java.util.List;
 
-import org.ort.starwars.fleet.dormain.models.entities.Starship;
+import org.ort.starwars.fleet.core.domain.models.entities.Starship;
+import org.ort.starwars.fleet.core.utils.Iterables;
 import org.ort.starwars.fleet.infrastructure.persistence.entities.StarshipEntity;
-import org.ort.starwars.fleet.utils.Iterables;
 import org.springframework.stereotype.Component;
 
 @Component

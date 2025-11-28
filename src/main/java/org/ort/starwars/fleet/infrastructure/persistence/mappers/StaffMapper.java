@@ -1,6 +1,6 @@
 package org.ort.starwars.fleet.infrastructure.persistence.mappers;
 
-import org.ort.starwars.fleet.dormain.models.entities.*;
+import org.ort.starwars.fleet.core.domain.models.entities.*;
 import org.ort.starwars.fleet.infrastructure.persistence.entities.StaffEntity;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package org.ort.starwars.fleet.infrastructure.persistence.entities;
 
-import org.ort.starwars.fleet.dormain.models.enums.Breed;
+import org.ort.starwars.fleet.core.domain.models.enums.Breed;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,12 +9,16 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Builder
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class StaffEntity {
 
     @Id
@@ -23,7 +27,7 @@ public class StaffEntity {
 
     // Caractétistiques
     @Enumerated(EnumType.STRING)
-    private final Breed breed;
+    private Breed breed;
 
     // Personnel disponible
     @Column
